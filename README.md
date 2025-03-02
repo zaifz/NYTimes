@@ -13,8 +13,8 @@ This repository contains an iOS app built using SwiftUI and MVVM architecture. T
 
 To clone this repository from GitHub, open a terminal and run:
 
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/zaifz/NYTimes.git
+cd NYTimes
 
 
 
@@ -36,34 +36,12 @@ cd your-repo
 
 
 
-Only UnitTests are covered in this Project. 
-
-For Unit Testing, Go to Product → Test (Cmd + U)
-
-
-
-📊 Generating Code Coverage Reports
-
-
-
-1. Enable Code Coverage in Xcode
-
-1️⃣ Go to Product → Scheme → Edit Scheme
-
-2️⃣ Select the Test section
-
-3️⃣ Enable ✅ Gather Coverage for All Targets
-
-4️⃣ Click Close
-
-
-
-2. Run Tests with Coverage
+1. Run Tests with Coverage
 
 • Go to Product → Test (Cmd + U)
 
 
-3. View Coverage Report in Xcode
+2. View Coverage Report in Xcode
 
 1️⃣ Open Report Navigator (Cmd + 9)
 
