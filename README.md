@@ -14,6 +14,7 @@ This repository contains an iOS app built using SwiftUI and MVVM architecture. T
 To clone this repository from GitHub, open a terminal and run:
 
 git clone https://github.com/zaifz/NYTimes.git
+
 cd NYTimes
 
 
