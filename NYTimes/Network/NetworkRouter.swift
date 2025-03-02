@@ -22,7 +22,7 @@ enum NetworkRouter {
     var path: String {
         switch self {
         case .fetchArticles(let section, let period):
-            return "/svc/mostpopular/v2/mostviewed/\(section)/\(period).json?api-key=\(Constants.Api.apiKey)"
+            return "/svc/mostpopular/v2/mostviewed/\(section)/\(period).json"
         }
     }
     
@@ -32,11 +32,28 @@ enum NetworkRouter {
             return .get
         }
     }
+    
+    var parameters: [String: Any] {
+        switch self {
+        case .fetchArticles(_, _):
+            return ["api-key": Constants.Api.apiKey]
+        }
+    }
 }
 
 extension NetworkRouter: URLRequestConvertible {
     func request() throws -> URLRequest {
-        guard let url = URL(string: Constants.Api.baseURL + path) else {
+        guard var urlComponents = URLComponents(string: Constants.Api.baseURL + path) else {
+            throw NetworkError.invalidURL
+        }
+
+        var queryItems = [URLQueryItem]()
+        for (key, value) in parameters {
+            queryItems.append(URLQueryItem(name: key, value: "\(value)"))
+        }
+        
+        urlComponents.queryItems = queryItems
+        guard let url = urlComponents.url else {
             throw NetworkError.invalidURL
         }
         
@@ -45,4 +62,4 @@ extension NetworkRouter: URLRequestConvertible {
         
         return request
     }
- }
+}
